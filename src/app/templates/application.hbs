@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        {{#link-to "index" class="navbar-brand"}}NavigateIT{{/link-to}}
+      </div>
+      <ul class="nav navbar-nav">
+        <li>{{#link-to "education"}}IT Educations{{/link-to}}</li>
+        <li>{{#link-to "market"}}Marketplace{{/link-to}}</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>{{#link-to "admin"}}<span class="glyphicon glyphicon-user"></span> Admin{{/link-to}}</li>
+      </ul>
+    </div>
+  </nav>
+  <main class="container">
+    {{outlet}}
+  </main>
+</div>

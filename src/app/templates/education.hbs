@@ -1,0 +1,12 @@
+<p>ERR HERRO???</p>
+
+<div>
+  <h2>Educations currently in database:</h2>
+  <ul>
+    {{#each model as |education|}}
+      <li>{{education.title}}</li>
+    {{/each}}
+  </ul>
+</div>
+
+{{outlet}}
