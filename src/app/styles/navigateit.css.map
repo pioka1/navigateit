@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,IAAK;EAEH,SAAS,EAAE,IAAI;;AAGjB,EAAG;EACD,SAAS,EAAE,IAAI;;AAEjB,EAAG;EACD,SAAS,EAAE,IAAI;;AAEjB,sBAAuB;EACrB,SAAS,EAAE,IAAI;;AAGjB,IAAK;EACH,UAAU,EAAE,IAAI",
+"mappings": "AAAA,IAAK;EACH,UAAU,EAAE,IAAI",
 "sources": ["navigateit.scss"],
 "names": [],
 "file": "navigateit.css"

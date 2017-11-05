@@ -7,7 +7,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('admin');
+  this.route('admin', function() {
+    this.route('education', function() {
+      this.route('edit', {
+        path: ":education_id"
+      });
+    });
+  });
   this.route('education');
   this.route('market', { path: '/marketplace' });
   this.route('asd');

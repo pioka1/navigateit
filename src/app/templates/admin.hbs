@@ -1,4 +1,111 @@
-<div>
+<div xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+     xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+  <h2>Add new education:</h2>
+    <form {{action 'save' on='Submit'}}>
+      <div class="form-group">
+        <label for="name_en">English name</label>
+        <input type="text" class="form-control" name="name_en" id="name_en">
+      </div>
+      <div class="form-group">
+        <label for="name_da">Danish name</label>
+        <input type="text" class="form-control" name="name_da" id="name_da">
+      </div>
+      <div class="form-group">
+        <label for="title">Education title</label>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="title" value="cand.it.">
+            cand.it.
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="title" value="cand.mag.">
+            cand.mag.
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="title" value="cand.merc.it.">
+            cand.merc.it./cand.merc.dat)
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="title" value="cand.polyt.">
+            cand.polyt.
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="title" value="cand.scient.">
+            cand.scient.
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="university">University</label>
+        <select class="form-control" name="university" id="university">
+          <option>Please select your university...</option>
+          <option value="aau">Aalborg Universitet</option>
+          <option value="au">Aarhus Universitet</option>
+          <option value="cbs">Copenhagen Business School</option>
+          <option value="dtu">Danmarks Tekniske Universitet</option>
+          <option value="itu">IT-Universitetet i København</option>
+          <option value="ku">Københavns Universitet</option>
+          <option value="ruc">Roskilde Universitet</option>
+          <option value="sdu">Syddansk Universitet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="degree">Degree title</label>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="degree" value="kandidat">
+            Kandidat
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="degree" value="bachelor">
+            Bachelor
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="degree" value="ak">
+            Erhvervsakademiuddannelse
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="degree" value="pbachelor">
+            Professionsbachelor
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="degree" value="diplom">
+            Diplomuddannelse
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="degree" value="eud">
+            Erhvervsuddannelse
+          </label>
+        </div>
+      </div>
+      <div class="form-control">
+        <label>Specializations</label>
+        <ul id="specialization_list">
+          {{#each specializations}}
+            {{#study-specialization}}{{/study-specialization}}
+          {{/each}}
+        </ul>
+        <button {{action "addSpecialization"}}>Add specialization</button>
+      </div>
+    </form>
   <h2>Educations currently in database:</h2>
   <ul>
     {{#each model as |education|}}
