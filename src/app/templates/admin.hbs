@@ -1,8 +1,13 @@
 <div>
   <h2>Educations currently in database:</h2>
   <ul>
-    {{#each educations as |education|}}
-      <li>{{education}}</li>
+    {{#each model as |education|}}
+      <li>
+        <p>{{education.name.en}}</p>
+        <p>{{education.title}}</p>
+        <p>{{education.university}}</p>
+        <p>{{education.degree}}</p>
+      </li>
     {{/each}}
   </ul>
 </div>
