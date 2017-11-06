@@ -1,4 +1,6 @@
 <li class="skill-tag">
   {{yield}}
-  <i class="close"></i>
+  {{#if can-edit}}
+    <i class="close"></i>
+  {{/if}}
 </li>

@@ -1,0 +1,19 @@
+<li class="li-education list-group-item">
+  <img class="li-education-university" src="assets/images/{{education.university}}.png" />
+  <h3 class="li-education-name">{{education.name.en}}</h3>
+  <small class="li-education-title"><i>{{education.title}}</i></small>
+  <div class="row li-education-information">
+    <div class="col-md-4">
+      <strong>Description</strong>
+    </div>
+    <div class="col-md-6">
+      <strong>Skills</strong>
+      <ul class="ul-skills">
+        {{#each education.skills as |skill|}}
+          <li class="skill-tag">{{skill}}</li>
+        {{/each}}
+      </ul>
+    </div>
+
+  </div>
+</li>

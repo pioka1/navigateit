@@ -27,7 +27,7 @@
         <div class="form-check">
           <label class="form-check-label">
             <input class="form-check-input" type="radio" name="title" value="cand.merc.it.">
-            cand.merc.it./cand.merc.dat)
+            cand.merc.it./cand.merc.dat
           </label>
         </div>
         <div class="form-check">
@@ -96,9 +96,9 @@
           </label>
         </div>
       </div>
-      <div class="form-control">
+      <div class="form-group">
         <label>Specializations</label>
-        <ul id="specialization_list">
+        <ul id="specialization_list" class="list-group">
           {{#each specializations}}
             {{#study-specialization}}{{/study-specialization}}
           {{/each}}
@@ -107,14 +107,9 @@
       </div>
     </form>
   <h2>Educations currently in database:</h2>
-  <ul>
+  <ul class="list-group">
     {{#each model as |education|}}
-      <li>
-        <p>{{education.name.en}}</p>
-        <p>{{education.title}}</p>
-        <p>{{education.university}}</p>
-        <p>{{education.degree}}</p>
-      </li>
+      {{li-education education=education university_logo_url=university_logo_url}}
     {{/each}}
   </ul>
 </div>
