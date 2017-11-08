@@ -1,6 +1,11 @@
-<li class="skill-tag">
-  {{yield}}
-  {{#if can-edit}}
-    <i class="close"></i>
-  {{/if}}
-</li>
+{{#if can-edit}}
+  <span>
+    {{skill}}
+    <button {{action removeSkill skill}} type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  </span>
+{{else}}
+  <span {{action addSkill skill}}>
+    {{skill}}
+  </span>
+{{/if}}
+

@@ -28,37 +28,37 @@
       <label for="degree">Degree title</label>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="kandidat" onchange={{action 'cand_select'}}>
+          <input class="form-check-input" type="radio" name="degree" value="kandidat" onchange={{action 'candSelect'}}>
           Kandidat
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="bachelor" onchange={{action 'cand_deselect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="bachelor" onchange={{action 'candDeselect'}}>
           Bachelor
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="ak" onchange={{action 'cand_deselect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="ak" onchange={{action 'candDeselect'}}>
           Erhvervsakademiuddannelse
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="pbachelor" onchange={{action 'cand_deselect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="pbachelor" onchange={{action 'candDeselect'}}>
           Professionsbachelor
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="diplom" onchange={{action 'cand_deselect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="diplom" onchange={{action 'candDeselect'}}>
           Diplomuddannelse
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="eud" onchange={{action 'cand_deselect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="eud" onchange={{action 'candDeselect'}}>
           Erhvervsuddannelse
         </label>
       </div>
@@ -106,6 +106,27 @@
         {{/each}}
       </ul>
       <button class="btn btn-default" {{action "addSpecialization"}}>Add specialization</button>
+    </div>
+    <div class="form-group">
+      <label>Skills</label>
+      <div class="row">
+        <div class="col-md-4">
+          <label>Acquired Skills</label>
+          <ul class="ul-skills">
+            {{#each skills_selected as |skill|}}
+              {{skill-tag skill=skill removeSkill=(action 'removeSkill') can-edit=true}}
+            {{/each}}
+          </ul>
+        </div>
+        <div class="col-md-8">
+          <label>Available Skills</label>
+          <ul class="ul-skills">
+            {{#each skills_available as |skill|}}
+              {{skill-tag skill=skill addSkill=(action 'addSkill') can-edit=false}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
     </div>
   </form>
   <h2>Educations currently in database:</h2>

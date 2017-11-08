@@ -1,21 +1,22 @@
 main {
   margin-top: 60px; }
 
-.li-education .li-education-university {
-  float: right;
-  max-height: 125px;
-  margin: 5px; }
-.li-education .li-education-information {
-  margin-top: 20px; }
-.li-education .ul-skills {
+.ul-skills {
   list-style-type: none;
   padding: 0; }
-  .li-education .ul-skills .skill-tag {
+  .ul-skills .skill-tag {
     display: inline-block;
     padding: 10px;
     margin-right: 4px;
     margin-bottom: 8px;
     border: solid 1px #CCCCCC;
     border-radius: 4px; }
+
+.li-education .li-education-university {
+  float: right;
+  max-height: 125px;
+  margin: 5px; }
+.li-education .li-education-information {
+  margin-top: 20px; }
 
 /*# sourceMappingURL=navigateit.css.map */
