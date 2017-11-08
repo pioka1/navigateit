@@ -1,22 +1,39 @@
 main {
   margin-top: 60px; }
 
+label.form-check-label {
+  font-weight: 300; }
+
+small.form-small {
+  display: block;
+  margin-bottom: 4px; }
+
 .ul-skills {
   list-style-type: none;
-  padding: 0; }
+  padding: 0;
+  margin: 4px 0; }
   .ul-skills .skill-tag {
     display: inline-block;
-    padding: 10px;
     margin-right: 4px;
     margin-bottom: 8px;
     border: solid 1px #CCCCCC;
-    border-radius: 4px; }
+    border-radius: 4px;
+    cursor: pointer; }
+    .ul-skills .skill-tag:hover, .ul-skills .skill-tag:focus {
+      background-color: #eeeeee; }
+    .ul-skills .skill-tag > span {
+      display: inline-block;
+      padding: 10px; }
+    .ul-skills .skill-tag .close {
+      padding-left: 6px; }
 
-.li-education .li-education-university {
-  float: right;
-  max-height: 125px;
-  margin: 5px; }
-.li-education .li-education-information {
-  margin-top: 20px; }
+.li-education {
+  margin-bottom: 8px !important; }
+  .li-education .li-education-university {
+    float: right;
+    max-height: 125px;
+    margin: 5px; }
+  .li-education .li-education-information {
+    margin-top: 20px; }
 
 /*# sourceMappingURL=navigateit.css.map */

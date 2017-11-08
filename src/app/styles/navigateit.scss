@@ -1,19 +1,38 @@
 main {
   margin-top: 60px;
 }
+label.form-check-label {
+  font-weight: 300;
+}
+small.form-small {
+  display: block;
+  margin-bottom: 4px;
+}
 .ul-skills {
   list-style-type: none;
   padding: 0;
+  margin: 4px 0;
   .skill-tag {
     display: inline-block;
-    padding: 10px;
     margin-right: 4px;
     margin-bottom: 8px;
     border: solid 1px #CCCCCC;
     border-radius: 4px;
+    cursor: pointer;
+    &:hover, &:focus {
+      background-color: #eeeeee;
+    }
+    > span {
+      display: inline-block;
+      padding: 10px;
+    }
+    .close {
+      padding-left: 6px;
+    }
   }
 }
 .li-education {
+  margin-bottom: 8px !important;
   .li-education-university {
     float: right;
     max-height: 125px;

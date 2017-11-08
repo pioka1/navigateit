@@ -8,9 +8,10 @@ let EducationSchema = new Schema({
 			da: String,
 			en: String
 		},
+        university: String,
+        description: String,
+        degree: String,
 		title: String,
-		university: String,
-		degree: String,
 		specializations: [{
 			name: String,
 			description: String

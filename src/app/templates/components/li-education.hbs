@@ -5,12 +5,13 @@
   <div class="row li-education-information">
     <div class="col-md-4">
       <strong>Description</strong>
+      <p>{{education.description}}</p>
     </div>
     <div class="col-md-6">
       <strong>Skills</strong>
       <ul class="ul-skills">
         {{#each education.skills as |skill|}}
-          <li class="skill-tag">{{skill}}</li>
+          <li class="skill-tag"><span>{{skill}}</span></li>
         {{/each}}
       </ul>
     </div>

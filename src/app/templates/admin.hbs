@@ -13,7 +13,7 @@
     <div class="form-group">
       <label for="university">University</label>
       <select class="form-control" name="university" id="university">
-        <option>Please select your university...</option>
+        <option value="" disabled selected>Please select your university...</option>
         <option value="aau">Aalborg Universitet</option>
         <option value="au">Aarhus Universitet</option>
         <option value="cbs">Copenhagen Business School</option>
@@ -23,6 +23,10 @@
         <option value="ruc">Roskilde Universitet</option>
         <option value="sdu">Syddansk Universitet</option>
       </select>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" rows="3" id="description" name="description"></textarea>
     </div>
     <div class="form-group">
       <label for="degree">Degree title</label>
@@ -100,18 +104,22 @@
     {{/if}}
     <div class="form-group">
       <label>Specializations</label>
-      <ul id="specialization_list" class="list-group">
-        {{#each specializations as |specialization index|}}
-          {{study-specialization index=index removeSpecialization=(action 'removeSpecialization')}}
-        {{/each}}
-      </ul>
+      {{#if specializations}}
+        <ul id="specialization_list" class="list-group">
+          {{#each specializations as |specialization index|}}
+            {{study-specialization index=index removeSpecialization=(action 'removeSpecialization')}}
+          {{/each}}
+        </ul>
+      {{else}}
+        <small class="form-small">No specializations</small>
+      {{/if}}
       <button class="btn btn-default" {{action "addSpecialization"}}>Add specialization</button>
     </div>
     <div class="form-group">
       <label>Skills</label>
       <div class="row">
         <div class="col-md-4">
-          <label>Acquired Skills</label>
+          <i>Acquired Skills</i>
           <ul class="ul-skills">
             {{#each skills_selected as |skill|}}
               {{skill-tag skill=skill removeSkill=(action 'removeSkill') can-edit=true}}
@@ -119,7 +127,7 @@
           </ul>
         </div>
         <div class="col-md-8">
-          <label>Available Skills</label>
+          <i>Available Skills</i>
           <ul class="ul-skills">
             {{#each skills_available as |skill|}}
               {{skill-tag skill=skill addSkill=(action 'addSkill') can-edit=false}}
