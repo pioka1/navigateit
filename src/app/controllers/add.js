@@ -29,7 +29,6 @@ export default Ember.Controller.extend({
       });
     },
     removeSpecialization(index) {
-      let sp = this.get('specializations');
       this.get('specializations').removeAt(index, 1);
     },
     updateSpecialization(index, target, event) {
@@ -51,15 +50,6 @@ export default Ember.Controller.extend({
       skills_available.sort();
     },
     submitEducation() {
-      let name_en = this.get('name_en');
-      console.log(this.get('name_da'));
-      console.log(this.get('university'));
-      console.log(this.get('description'));
-      console.log(this.get('degree'));
-      console.log(this.get('title'));
-      console.log(this.get('specializations'));
-      console.log(this.get('skills'));
-
       let education = this.get('store').createRecord('education', {
         name: {
           en: this.get('name_en'),
@@ -74,7 +64,7 @@ export default Ember.Controller.extend({
         updated: new Date()
       });
       education.save();
+      this.transitionToRoute('admin');
     }
   }
 });
-

@@ -1,5 +1,11 @@
+body {
+  font-family: "Verdana", sans-serif, arial; }
+
 main {
   margin-top: 60px; }
+
+hr {
+  margin: 30px 0; }
 
 label.form-check-label {
   font-weight: 300; }
@@ -7,6 +13,17 @@ label.form-check-label {
 small.form-small {
   display: block;
   margin-bottom: 4px; }
+
+#welcome {
+  font-size: 6rem;
+  margin: 50px 0; }
+
+#welcome_c2a {
+  font-size: 4rem; }
+
+#main_skill_selector .ul-skills {
+  padding: 10px 0;
+  border-top: solid 1px #eeeeee; }
 
 .ul-skills {
   list-style-type: none;
@@ -28,15 +45,19 @@ small.form-small {
       padding-left: 6px; }
 
 .specialization {
-  margin-bottom: 8px; }
+  margin-bottom: 8px !important; }
 
 .li-education {
   margin-bottom: 8px !important; }
   .li-education .li-education-university {
     float: right;
+    margin: 12px 4px;
     max-height: 125px;
-    margin: 5px; }
+    max-width: 300px; }
   .li-education .li-education-information {
     margin-top: 20px; }
+
+form input[type=submit] {
+  margin: 10px 0; }
 
 /*# sourceMappingURL=navigateit.css.map */

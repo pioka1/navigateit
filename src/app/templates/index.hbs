@@ -1,18 +1,23 @@
 <header>
-  <h1>Welcome to NavigateIT</h1>
-  <h3>The platform which helps you connect with IT students that possess just the right skills and background knowledge to fit your company's needs.</h3>
+  <h1 id="welcome" class="text-center">Welcome to NavigateIT</h1>
+  <h3 class="text-center">The place to find the right IT students with the right skills.</h3>
 </header>
-<section class="row">
-  <div class="col-lg-3">
+<br><br>
+<section id="main_skill_selector" class="row">
+  <div class="col-lg-5">
     <h3>Required Skills</h3>
-    <ul class="req_skills">
-
+    <ul class="ul-skills">
+      {{#each skills_selected as |skill|}}
+        {{skill-tag skill=skill removeSkill=(action "removeSkill") can-edit=true}}
+      {{/each}}
     </ul>
   </div>
-  <div class="col-lg-9">
-    <h3>Required Skills</h3>
-    <ul class="avail_skills">
-
+  <div class="col-lg-7">
+    <h3>Available Skills</h3>
+    <ul class="ul-skills">
+      {{#each skills_available as |skill|}}
+        {{skill-tag skill=skill addSkill=(action "addSkill") can-edit=false}}
+      {{/each}}
     </ul>
   </div>
 </section>
