@@ -27,6 +27,9 @@ small.form-small {
     .ul-skills .skill-tag .close {
       padding-left: 6px; }
 
+.specialization {
+  margin-bottom: 8px; }
+
 .li-education {
   margin-bottom: 8px !important; }
   .li-education .li-education-university {

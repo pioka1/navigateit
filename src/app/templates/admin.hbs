@@ -4,15 +4,15 @@
   <form {{action 'save' on='Submit'}}>
     <div class="form-group">
       <label for="name_en">English name</label>
-      <input type="text" class="form-control" name="name_en" id="name_en">
+      <input type="text" class="form-control" name=name_en id="name_en" onchange={{action (mut name_en) value="target.value"}}>
     </div>
     <div class="form-group">
       <label for="name_da">Danish name</label>
-      <input type="text" class="form-control" name="name_da" id="name_da">
+      <input type="text" class="form-control" name="name_da" id="name_da" onchange={{action (mut name_da) value="target.value"}}>
     </div>
     <div class="form-group">
       <label for="university">University</label>
-      <select class="form-control" name="university" id="university">
+      <select class="form-control" name="university" id="university" onchange={{action (mut university) value="target.value"}}>
         <option value="" disabled selected>Please select your university...</option>
         <option value="aau">Aalborg Universitet</option>
         <option value="au">Aarhus Universitet</option>
@@ -26,43 +26,43 @@
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+      <textarea class="form-control" rows="3" id="description" name="description" onchange={{action (mut description) value="target.value"}}></textarea>
     </div>
     <div class="form-group">
       <label for="degree">Degree title</label>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="kandidat" onchange={{action 'candSelect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="kandidat" onchange={{action 'candSelect' value="target.value"}}>
           Kandidat
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="bachelor" onchange={{action 'candDeselect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="bachelor" onchange={{action 'candDeselect' value="target.value"}}>
           Bachelor
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="ak" onchange={{action 'candDeselect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="ak" onchange={{action 'candDeselect' value="target.value"}}>
           Erhvervsakademiuddannelse
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="pbachelor" onchange={{action 'candDeselect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="pbachelor" onchange={{action 'candDeselect' value="target.value"}}>
           Professionsbachelor
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="diplom" onchange={{action 'candDeselect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="diplom" onchange={{action 'candDeselect' value="target.value"}}>
           Diplomuddannelse
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          <input class="form-check-input" type="radio" name="degree" value="eud" onchange={{action 'candDeselect'}}>
+          <input class="form-check-input" type="radio" name="degree" value="eud" onchange={{action 'candDeselect' value="target.value"}}>
           Erhvervsuddannelse
         </label>
       </div>
@@ -72,31 +72,31 @@
         <label for="title">Education title</label>
         <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="title" value="cand.it.">
+            <input class="form-check-input" type="radio" name="title" value="cand.it." onchange={{action (mut title) value="target.value"}}>
             cand.it.
           </label>
         </div>
         <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="title" value="cand.mag.">
+            <input class="form-check-input" type="radio" name="title" value="cand.mag." onchange={{action (mut title) value="target.value"}}>
             cand.mag.
           </label>
         </div>
         <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="title" value="cand.merc.it.">
+            <input class="form-check-input" type="radio" name="title" value="cand.merc.it." onchange={{action (mut title) value="target.value"}}>
             cand.merc.it./cand.merc.dat
           </label>
         </div>
         <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="title" value="cand.polyt.">
+            <input class="form-check-input" type="radio" name="title" value="cand.polyt." onchange={{action (mut title) value="target.value"}}>
             cand.polyt.
           </label>
         </div>
         <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="title" value="cand.scient.">
+            <input class="form-check-input" type="radio" name="title" value="cand.scient." onchange={{action (mut title) value="target.value"}}>
             cand.scient.
           </label>
         </div>
@@ -107,7 +107,7 @@
       {{#if specializations}}
         <ul id="specialization_list" class="list-group">
           {{#each specializations as |specialization index|}}
-            {{study-specialization index=index removeSpecialization=(action 'removeSpecialization')}}
+            {{study-specialization index=index removeSpecialization=(action 'removeSpecialization') updateSpecialization=(action 'updateSpecialization')}}
           {{/each}}
         </ul>
       {{else}}
@@ -121,7 +121,7 @@
         <div class="col-md-4">
           <i>Acquired Skills</i>
           <ul class="ul-skills">
-            {{#each skills_selected as |skill|}}
+            {{#each skills as |skill|}}
               {{skill-tag skill=skill removeSkill=(action 'removeSkill') can-edit=true}}
             {{/each}}
           </ul>
@@ -136,6 +136,7 @@
         </div>
       </div>
     </div>
+    <input type="submit" class="btn btn-primary" {{action "submitEducation" on "submit"}}>
   </form>
   <h2>Educations currently in database:</h2>
   <ul class="list-group">

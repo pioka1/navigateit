@@ -2,10 +2,10 @@
   <button {{action removeSpecialization index}} type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <div class="form-group">
     <label for="specialization_title">Name</label>
-    <input type="text" class="form-control" id="specialization_title" name="specialization_title[]">
+    <input type="text" class="form-control" id="specialization_title" name="specialization_title[]" onchange={{action updateSpecialization index "name" }} >
   </div>
   <div class="form-group">
     <label for="specialization_description">Description</label>
-    <textarea class="form-control" rows="3" id="specialization_description" name="specialization_description[]"></textarea>
   </div>
+  <textarea class="form-control" rows="3" id="specialization_description" name="specialization_description[]" onchange={{action updateSpecialization index "description" }} ></textarea>
 </li>

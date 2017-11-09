@@ -16,10 +16,12 @@ module.exports = function(router) {
 	});
 
 	router.post('/educations', (req, res) => {
-		let education = new Education(req.body);
+		console.log(req.body);
+		let education = new Education(req.body.data);
+        console.log(education);
 		education.save((err) => {
 			if (err) res.send(err);
-			res.status(200).send();
+			res.status(201).json({"data": education});
 		});
 	});
 
