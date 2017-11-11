@@ -1,9 +1,11 @@
-<h1>Admin Menu</h1>
-{{#link-to "add" class="btn btn-default" type="button"}}New Education{{/link-to}}
-<hr>
-<h2>Educations currently in database:</h2>
-<ul class="list-group">
-  {{#each model as |education|}}
-    {{li-education education=education}}
-  {{/each}}
-</ul>
+<div class="container">
+  <h1>Admin Menu</h1>
+  {{#link-to "add" class="btn btn-default" type="button"}}New Education{{/link-to}}
+  <hr>
+  <h2>Educations currently in database:</h2>
+  <ul class="list-group">
+    {{#each model as |education|}}
+      {{li-education education=education}}
+    {{/each}}
+  </ul>
+</div>

@@ -17,6 +17,9 @@ export default Ember.Controller.extend({
       skills_selected.removeObject(skill);
       skills_available.pushObject(skill);
       skills_available.sort();
+    },
+    search() {
+      this.transitionToRoute('education');
     }
   }
 });
