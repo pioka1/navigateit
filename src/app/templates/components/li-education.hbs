@@ -1,5 +1,5 @@
 <li class="li-education list-group-item">
-  <img class="li-education-university" src="assets/images/{{education.university}}.png" />
+  <img class="li-education-university" src="/assets/images/{{education.university}}.png" />
   <h3 class="li-education-name">{{education.name.en}}</h3>
   <small class="li-education-title"><i>{{education.title}}</i></small>
   <div class="row li-education-information">
@@ -15,6 +15,6 @@
         {{/each}}
       </ul>
     </div>
-
+    {{#link-to 'education' education.id}}Read more&hellip;{{/link-to}}
   </div>
 </li>

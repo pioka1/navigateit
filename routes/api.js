@@ -15,6 +15,13 @@ module.exports = function(router) {
 		});
 	});
 
+	router.get('/educations/:educationId', (req, res) => {
+		Education.findById(req.params.educationId, (err, education) => {
+            if (err) res.send(err);
+            res.json({'data': education});
+		});
+	});
+
 	router.post('/educations', (req, res) => {
 		console.log(req.body);
 		let education = new Education(req.body.data);

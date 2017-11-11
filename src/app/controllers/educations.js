@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import education from "../routes/education";
 
 export default Ember.Controller.extend({
   queryParams: ['search_filter', 'university_filter', 'degree_filter', 'skills'],

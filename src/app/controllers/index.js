@@ -19,7 +19,8 @@ export default Ember.Controller.extend({
       skills_available.sort();
     },
     search() {
-      this.transitionToRoute('education');
+      let skills_selected = this.get('skills_selected');
+      this.transitionToRoute('educations', { queryParams: { skills: skills_selected }});
     }
   }
 });

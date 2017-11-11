@@ -58,8 +58,8 @@ small.form-small {
   .li-education-university {
     float: right;
     margin: 12px 4px;
-    max-height: 125px;
-    max-width: 300px;
+    max-height: 110px;
+    max-width: 255px;
   }
   .li-education-information {
     margin-top: 20px;
@@ -67,4 +67,10 @@ small.form-small {
 }
 form input[type=submit] {
   margin: 10px 0;
+}
+
+.university_full_size {
+  max-width: 200px;
+  max-height: 200px;
+  margin: 25px 0 20px 25px;
 }
