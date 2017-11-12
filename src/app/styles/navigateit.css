@@ -48,7 +48,9 @@ small.form-small {
   margin-bottom: 8px !important; }
 
 .li-education {
-  margin-bottom: 8px !important; }
+  margin-bottom: 20px !important;
+  padding-bottom: 0;
+  box-shadow: 0 0 6px #EEEEEE; }
   .li-education .li-education-university {
     float: right;
     margin: 12px 4px;
@@ -56,6 +58,15 @@ small.form-small {
     max-width: 255px; }
   .li-education .li-education-information {
     margin-top: 20px; }
+  .li-education .read-more {
+    border-top: solid 1px #eeeeee; }
+    .li-education .read-more > a {
+      padding-top: 4px;
+      padding-bottom: 6px;
+      display: block;
+      text-align: center; }
+    .li-education .read-more:hover, .li-education .read-more:focus {
+      background-color: rgba(234, 238, 245, 0.7); }
 
 form input[type=submit] {
   margin: 10px 0; }

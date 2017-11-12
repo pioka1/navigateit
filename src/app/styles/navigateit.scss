@@ -54,7 +54,9 @@ small.form-small {
   margin-bottom: 8px !important;
 }
 .li-education {
-  margin-bottom: 8px !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 0;
+  box-shadow: 0 0 6px #EEEEEE;
   .li-education-university {
     float: right;
     margin: 12px 4px;
@@ -63,6 +65,18 @@ small.form-small {
   }
   .li-education-information {
     margin-top: 20px;
+  }
+  .read-more {
+    border-top: solid 1px #eeeeee;
+    > a {
+      padding-top: 4px;
+      padding-bottom: 6px;
+      display: block;
+      text-align: center;
+    }
+    &:hover, &:focus {
+      background-color: rgba(234, 238, 245, 0.7);
+    }
   }
 }
 form input[type=submit] {
