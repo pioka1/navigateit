@@ -2,7 +2,7 @@ body {
   font-family: "Verdana", sans-serif, arial;
 }
 main {
-  margin-top: 60px;
+  margin-top: 50px;
 }
 hr {
   margin: 30px 0;
@@ -50,9 +50,6 @@ small.form-small {
     }
   }
 }
-.specialization {
-  margin-bottom: 8px !important;
-}
 .li-education {
   margin-bottom: 20px !important;
   padding-bottom: 0;
@@ -82,9 +79,20 @@ small.form-small {
 form input[type=submit] {
   margin: 10px 0;
 }
-
+#education {
+  margin-top: 80px;
+  section {
+    margin-bottom: 30px;
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  .specialization {
+    margin-bottom: 20px;
+  }
+}
 .university_full_size {
-  max-width: 200px;
-  max-height: 200px;
-  margin: 25px 0 20px 25px;
+  max-width: 400px;
+  max-height: 100px;
+  margin: 20px 0;
 }

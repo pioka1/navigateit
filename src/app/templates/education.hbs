@@ -1,15 +1,33 @@
 <div class="container" id="education">
-  <img class="university_full_size pull-right" src="/assets/images/{{model.university}}.png" />
-  <h1>{{model.name.en}}</h1>
-  <small><i>{{model.title}}</i></small>
-  <h2>Description</h2>
-  <p>{{model.description}}</p>
-  {{#if model.specializations}}
+  <header class="text-center">
+    <img class="university_full_size" src="/assets/images/{{model.university}}_wide.png" />
+    <h1>{{model.name.en}}</h1>
+    <small><i>{{model.title}}</i></small>
+  </header>
+  <hr>
+  <section>
+    <h2>Description</h2>
+    <p>{{model.description}}</p>
+  </section>
+  <section>
     <h2>Specializations</h2>
-    {{#each model.specializations as |specialization|}}
-      <label>{{specialization.title}}</label>
-      <p>{{specialization.description}}</p>
-    {{/each}}
-  {{/if}}
-
+    {{#if model.specializations}}
+      {{#each model.specializations as |specialization|}}
+        <div class="specialization">
+          <label>{{specialization.name}}</label>
+          <p>{{specialization.description}}</p>
+        </div>
+      {{else}}
+        <p>No specializations.</p>
+      {{/each}}
+    {{/if}}
+  </section>
+  <section>
+    <h2>Attained skills</h2>
+    <ul class="ul-skills">
+      {{#each model.skills as |skill|}}
+        <li class="skill-tag"><span>{{skill}}</span></li>
+      {{/each}}
+    </ul>
+  </section>
 </div>

@@ -1,7 +1,8 @@
 <div class="container-fluid">
   <div class="row">
     <aside class="col-lg-4">
-      <h2>Filtering Options</h2>
+      <h2>Filtering options</h2>
+      <hr>
       <form>
         <div class="form-group">
           <label for="search">Filter by name</label>
@@ -117,7 +118,10 @@
     </aside>
     <section class="col-lg-8">
       <h2>Results</h2>
-      <small>{{filteredEducations.length}} results found</small>
+      <hr>
+      <div style="margin: 5px 0;">
+        <small>{{filteredEducations.length}} results found</small>
+      </div>
       <ul class="list-group">
         {{#each filteredEducations as |education|}}
           {{li-education education=education}}
