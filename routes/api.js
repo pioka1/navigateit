@@ -1,7 +1,7 @@
 module.exports = function(router) {
 	const path = require('path');
 	let Education = require('../models/Education');
-	let MarketPost = require('../models/MarketPost');
+	let Bulletin = require('../models/Bulletin');
 
 	router.get('/', (req, res) => {
 		res.send('I am here');
@@ -33,18 +33,25 @@ module.exports = function(router) {
 	});
 
 
-	router.get('/marketposts', (req, res) => {
-		MarketPost.find((err, marketposts) => {
+	router.get('/bulletins', (req, res) => {
+        Bulletin.find((err, bulletins) => {
 			if (err) res.send(err);
-			res.json({'data': marketposts});
+			res.json({'data': bulletins});
 		});
 	});
 
-	router.post('/marketposts', (req, res) => {
-		let marketpost = new MarketPost(req.body);
-		marketpost.save((err) => {
+    router.get('/bulletins/:bulletinId', (req, res) => {
+        Bulletin.findById(req.params.bulletinId, (err, bulletin) => {
+            if (err) res.send(err);
+            res.json({'data': bulletin});
+        });
+    });
+
+	router.post('/bulletins', (req, res) => {
+		let bulletin = new Bulletin(req.body.data);
+        bulletin.save((err) => {
 			if (err) res.send(err);
-			res.status(200).send();
+			res.status(201).json({"data": bulletin});
 		});
 	});
 

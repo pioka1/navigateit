@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row">
+    <aside class="col-lg-4">
+      <h2>Search options</h2>
+      <hr>
+      <form>
+        <div class="form-group">
+          <label>Published by</label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="all" value="all" checked onchange={{action (mut publisher) value="target.value"}}>
+              All
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="publisher_type" value="company" onchange={{action (mut publisher) value="target.value"}}>
+              Companies & Organisations
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="publisher_type" value="student" onchange={{action (mut publisher) value="target.value"}}>
+              Students
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="publisher_type" value="faculty" onchange={{action (mut publisher) value="target.value"}}>
+              School Faculty
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="search">Filter by title</label>
+          <input type="text" class="form-control" name="search" id="search" oninput={{action (mut search) value="target.value"}}>
+        </div>
+        <div class="form-group">
+          <label for="education-filter">Filter by education</label>
+          <select class="form-control" name="education" id="education-filter" onchange={{action (mut education) value="target.value"}}>
+            <option value="" disabled selected>Select an education&hellip;</option>
+            {{#each model.educations as |education|}}
+              <option value="{{education.id}}">{{to-upper-case education.university}} - {{education.name.en}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Sort by date</label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="ascending" value="ascending" checked onchange={{action (mut date_sort) value="target.value"}}>
+              Ascending (Newest bulletins)
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="descending" value="descending" onchange={{action (mut date_sort) value="target.value"}}>
+              Descending (Closest to deadline)
+            </label>
+          </div>
+        </div>
+      </form>
+    </aside>
+    <section class="col-lg-8">
+      {{#link-to "add-bulletin" class="btn-add" title="Create Bulletin"}}<i class="fa fa-plus" aria-hidden="true"></i>{{/link-to}}
+      <h2>Bulletin Board</h2>
+      <hr>
+      <div style="margin: 5px 0;">
+        <small>{{filteredBulletins.length}} results found</small>
+      </div>
+      <ul class="list-group">
+        {{#each filteredBulletins as |bulletin|}}
+          {{li-bulletin bulletin=bulletin}}
+        {{/each}}
+      </ul>
+    </section>
+  </div>
+</div>
