@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   publisher_name: "",
-  publisher_type: "",
+  publisher_category: "",
   title: "",
   description: "",
   contact_name: "",
@@ -28,18 +28,17 @@ export default Ember.Controller.extend({
     updateExpires(value) {
       console.log(value);
       switch(value) {
-        case 30:
+        case '30':
           this.set('expires', new Date((+new Date) + 2592000000));
           break;
-        case 60:
+        case '60':
           this.set('expires', new Date((+new Date) + 2592000000 * 2));
           break;
-        case 120:
+        case '120':
           this.set('expires', new Date((+new Date) + 2592000000 * 4));
           break;
         default:
           this.set('expires', new Date((+new Date) + 2592000000));
-          break;
       }
     },
     addEducation() {
@@ -47,15 +46,13 @@ export default Ember.Controller.extend({
       let target_educations = this.get('target_educations');
       target_educations.pushObject(selected_education);
     },
-    removeEducation(index) {
-      let target_educations = this.get('target_educations');
-      console.log(index);
-      target_educations.removeAt(index);
+    resetEducation(index) {
+      this.set('target_educations', [])
     },
     submitBulletin() {
       let bulletin = this.get('store').createRecord('bulletin', {
         publisher: {
-          type: this.get('publisher_type'),
+          category: this.get('publisher_category'),
           name: this.get('publisher_name')
         },
         title: this.get('title'),
@@ -67,11 +64,22 @@ export default Ember.Controller.extend({
           phone: this.get('contact_phone')
         },
         educations: this.get('target_educations'),
-        expires: this.get('expires'),
+        expires: this.get('expires')
       });
 
+      console.log(this.get('publisher_type'));
+      console.log(this.get('publisher_name'));
+      console.log(this.get('title'));
+      console.log(this.get('description'));
+      console.log(this.get('expires'));
       console.log(this.get('target_educations'));
+      console.log(this.get('contact_name'));
+      console.log(this.get('contact_position'));
+      console.log(this.get('contact_email'));
+      console.log(this.get('contact_phone'));
 
+      bulletin.save();
+      //this.transitionToRoute('bulletin-board');
     }
   }
 });

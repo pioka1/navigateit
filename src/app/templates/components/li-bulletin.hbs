@@ -1,0 +1,10 @@
+<li class="li-bulletin list-group-item">
+  <span class="pull-right">Expires in </span>
+  <label>{{bulletin.publisher.name}}</label>
+  <h3>{{bulletin.title}}</h3>
+  <ul>
+    {{#each bulletin.educations}}
+      <li>{{yield}}</li>
+    {{/each}}
+  </ul>
+</li>

@@ -10,14 +10,14 @@ module.exports = function(router) {
 	router.get('/educations', (req, res) => {
 		console.log('education called');
 		Education.find((err, educations) => {
-			if (err) res.send(err);
+			if (err) return res.send(err);
 			res.json({'data': educations});
 		});
 	});
 
 	router.get('/educations/:educationId', (req, res) => {
 		Education.findById(req.params.educationId, (err, education) => {
-            if (err) res.send(err);
+            if (err) return res.send(err);
             res.json({'data': education});
 		});
 	});
@@ -27,7 +27,7 @@ module.exports = function(router) {
 		let education = new Education(req.body.data);
         console.log(education);
 		education.save((err) => {
-			if (err) res.send(err);
+			if (err) return res.send(err);
 			res.status(201).json({"data": education});
 		});
 	});
@@ -35,14 +35,14 @@ module.exports = function(router) {
 
 	router.get('/bulletins', (req, res) => {
         Bulletin.find((err, bulletins) => {
-			if (err) res.send(err);
+			if (err) return res.send(err);
 			res.json({'data': bulletins});
 		});
 	});
 
     router.get('/bulletins/:bulletinId', (req, res) => {
         Bulletin.findById(req.params.bulletinId, (err, bulletin) => {
-            if (err) res.send(err);
+            if (err) return res.send(err);
             res.json({'data': bulletin});
         });
     });
@@ -50,7 +50,7 @@ module.exports = function(router) {
 	router.post('/bulletins', (req, res) => {
 		let bulletin = new Bulletin(req.body.data);
         bulletin.save((err) => {
-			if (err) res.send(err);
+            if (err) return res.send(err);
 			res.status(201).json({"data": bulletin});
 		});
 	});
