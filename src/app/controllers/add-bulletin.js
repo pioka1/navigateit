@@ -45,7 +45,7 @@ export default Ember.Controller.extend({
       let target_educations = this.get('target_educations');
       target_educations.pushObject(selected_education);
     },
-    resetEducation(index) {
+    resetEducation() {
       this.set('target_educations', [])
     },
     submitBulletin() {

@@ -25,8 +25,6 @@ export default Ember.Controller.extend({
       educations = educations.filter(education => degree_filter.includes(education.get('degree')));
     }
     if (skills.length > 0) {
-      console.log(skills);
-      console.log(educations.get('university'));
       educations = educations.filter(education => {
         let skills_match = true;
         skills.forEach(skill => {

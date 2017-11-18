@@ -7,6 +7,9 @@ main {
 hr {
   margin: 30px 0; }
 
+img {
+  image-rendering: -webkit-optimize-contrast; }
+
 label.form-check-label {
   font-weight: 300; }
 
@@ -70,6 +73,13 @@ form input[type=submit] {
 
 #education {
   margin-top: 80px; }
+  #education pre {
+    white-space: pre-wrap;
+    font-family: "Verdana", sans-serif, arial;
+    font-size: inherit;
+    padding: 0;
+    background-color: transparent;
+    border: none; }
   #education section {
     margin-bottom: 30px; }
   #education h2 {
@@ -96,8 +106,14 @@ form input[type=submit] {
     width: 18px; }
 
 .li-bulletin {
-  margin-bottom: 10px;
-  padding-bottom: 0; }
+  margin-bottom: 20px !important;
+  padding-bottom: 0;
+  box-shadow: 0 0 6px #EEEEEE; }
+  .li-bulletin p {
+    font-size: larger;
+    margin: 5px 0; }
+  .li-bulletin ul {
+    margin: 10px 0; }
   .li-bulletin .read-more {
     border-top: solid 1px #eeeeee; }
     .li-bulletin .read-more > a {

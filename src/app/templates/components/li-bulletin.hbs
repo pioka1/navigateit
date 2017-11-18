@@ -1,10 +1,10 @@
 <li class="li-bulletin list-group-item">
-  <span class="pull-right">Expires in {{formattedExpired}} days</span>
+  <span class="pull-right"><small>Posted {{formattedSubmitted}} - expires in {{formattedExpired}} days</small></span>
   <label>{{bulletin.publisher.name}}</label>
-  <h3>{{bulletin.title}}</h3>
+  <p>{{bulletin.title}}</p>
   <ul>
-    {{#each bulletin.educations as |estr|}}
-      <li>{{estr.name.en}}</li>
+    {{#each bulletin.educations as |education|}}
+      <li>{{#link-to "education" education.id}}{{education.name.en}}{{/link-to}}</li>
     {{/each}}
   </ul>
   <div class='read-more row'>
