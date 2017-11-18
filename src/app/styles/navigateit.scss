@@ -95,11 +95,42 @@ form input[type=submit] {
   section {
     margin-bottom: 30px;
   }
-  h2 {
+  h3 {
     margin-bottom: 20px;
   }
   .specialization {
     margin-bottom: 20px;
+  }
+}
+#bulletin {
+  pre {
+    white-space: pre-wrap;
+    font-family: "Verdana", sans-serif, arial;
+    font-size: inherit;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+  }
+  ul {
+    list-style-type: none;
+    margin-top: 10px;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  i {
+    color: white;
+    background-color: #555;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  i.fa-phone {
+    font-size: 18px;
+    padding: 6px 8px;
+  }
+  i.fa-envelope {
+    font-size: 14px;
+    padding: 8px;
   }
 }
 .university_full_size {
@@ -145,4 +176,8 @@ form input[type=submit] {
       background-color: rgba(234, 238, 245, 0.7);
     }
   }
+}
+
+form h3 {
+  margin-bottom: 16px;
 }

@@ -1,1 +1,18 @@
-<h1>Hi</h1>
+<div class="container" id="bulletin">
+  <header class="page-header">
+    <h1>{{model.title}}<br><small>{{model.publisher.name}}</small></h1>
+    <small>Expires on {{model.expires}}</small>
+  </header>
+  <pre>{{model.description}}</pre>
+  <hr>
+  <p><strong>Contact details</strong></p>
+  <section>
+    <div class="form-group">
+      <span>{{model.contact.name}} ({{model.contact.position}})</span>
+      <ul class="list-group">
+        <li><i class="fa fa-phone" aria-hidden="true"></i> {{model.contact.phone}}</li>
+        <li><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:{{model.contact.email}}">{{model.contact.email}}</a></li>
+      </ul>
+    </div>
+  </section>
+</div>

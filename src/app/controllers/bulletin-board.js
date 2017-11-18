@@ -35,12 +35,6 @@ export default Ember.Controller.extend({
       bulletins = bulletins.sortBy('posted').reverse()
     }
 
-
-    console.log(publisher);
-    console.log(search);
-    console.log(education);
-    console.log(date_sort);
-
     return bulletins;
   })
 });

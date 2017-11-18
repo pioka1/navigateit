@@ -6,11 +6,11 @@
   </header>
   <hr>
   <section>
-    <h2>Description</h2>
+    <h3>Description</h3>
     <p>{{model.description}}</p>
   </section>
   <section>
-    <h2>Specializations</h2>
+    <h3>Specializations</h3>
     {{#if model.specializations}}
       {{#each model.specializations as |specialization|}}
         <div class="specialization">
@@ -18,12 +18,12 @@
           <p>{{specialization.description}}</p>
         </div>
       {{else}}
-        <p>No specializations.</p>
+        <p>This programme does not feature any specializations.</p>
       {{/each}}
     {{/if}}
   </section>
   <section>
-    <h2>Attained skills</h2>
+    <h3>Attained skills</h3>
     <ul class="ul-skills">
       {{#each model.skills as |skill|}}
         <li class="skill-tag"><span>{{skill}}</span></li>

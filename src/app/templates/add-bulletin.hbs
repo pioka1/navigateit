@@ -42,7 +42,7 @@
           </select>
         </div>
         <div class="col-md-1">
-          <button class="btn btn-default" {{action "addEducation"}}>Add</button>
+          <button class="btn btn-danger" {{action "addEducation"}}>Add</button>
         </div>
         <div class="col-md-6">
           <a class="pull-right" style="cursor: pointer" {{action 'resetEducation'}}>Reset</a>
@@ -57,7 +57,7 @@
     <hr>
     <h3>Your details</h3>
     <div class="form-group">
-      <label for="title">I am/represent a&hellip;</label>
+      <label>I am/represent a&hellip;</label>
       <div class="form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="radio" name="publisher_category" value="student" onchange={{action (mut publisher_category) value="target.value"}}>
@@ -78,7 +78,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="publisher_name">Your name/name of organization or institution</label>
+      <label for="publisher_name">Name of organization or institution</label><small> (Optional)</small>
       <input type="text" class="form-control" name="publisher_name" id="publisher_name" onchange={{action (mut publisher_name) value="target.value"}}>
     </div>
     <br>
