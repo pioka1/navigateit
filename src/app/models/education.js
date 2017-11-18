@@ -8,7 +8,8 @@ export default DS.Model.extend({
 	title: DS.attr('string'),
 	specializations: DS.attr(),
 	skills: DS.attr(),
-	updated: DS.attr('date')
+	updated: DS.attr('date'),
+  bulletins: DS.hasMany('bulletin')
 });
 
 // course_programme: DS.attr(),

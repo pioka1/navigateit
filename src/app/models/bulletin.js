@@ -5,7 +5,7 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   description: DS.attr('string'),
   contact: DS.attr(),
-  educations: DS.attr(),
+  educations: DS.hasMany('education'),
   expires: DS.attr('date'),
   posted: DS.attr('date')
 });

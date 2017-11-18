@@ -69,6 +69,9 @@
         <small>{{filteredBulletins.length}} results found</small>
       </div>
       <ul class="list-group">
+        {{#each model.educations as |model|}}
+          <p>{{model.id}}</p>
+        {{/each}}
         {{#each filteredBulletins as |bulletin|}}
           {{li-bulletin bulletin=bulletin}}
         {{/each}}

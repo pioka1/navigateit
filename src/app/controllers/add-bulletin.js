@@ -26,7 +26,6 @@ export default Ember.Controller.extend({
   }),
   actions: {
     updateExpires(value) {
-      console.log(value);
       switch(value) {
         case '30':
           this.set('expires', new Date((+new Date) + 2592000000));
@@ -50,6 +49,7 @@ export default Ember.Controller.extend({
       this.set('target_educations', [])
     },
     submitBulletin() {
+
       let bulletin = this.get('store').createRecord('bulletin', {
         publisher: {
           category: this.get('publisher_category'),
@@ -63,23 +63,20 @@ export default Ember.Controller.extend({
           email: this.get('contact_email'),
           phone: this.get('contact_phone')
         },
-        educations: this.get('target_educations'),
-        expires: this.get('expires')
+        educations: [],
+        expires: this.get('expires'),
+        posted: new Date()
       });
 
-      console.log(this.get('publisher_type'));
-      console.log(this.get('publisher_name'));
-      console.log(this.get('title'));
-      console.log(this.get('description'));
-      console.log(this.get('expires'));
-      console.log(this.get('target_educations'));
-      console.log(this.get('contact_name'));
-      console.log(this.get('contact_position'));
-      console.log(this.get('contact_email'));
-      console.log(this.get('contact_phone'));
+      // Get foreign IDs for each education in list
+      let education_ids = this.get('target_educations');
+      education_ids.forEach(id => {
+        bulletin.get('educations').pushObject(this.get('store').peekRecord('education', id))
+      });
 
+      // Save and transition
       bulletin.save();
-      //this.transitionToRoute('bulletin-board');
+      this.transitionToRoute('bulletin-board');
     }
   }
 });
