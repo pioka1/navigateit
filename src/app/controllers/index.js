@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  skills_available: ["IT Project Management", "Management skills", "IT Strategy", "Software Development", "Organizational Studies", "Business Economics", "IT Law", "Innovation and Entrepreneurship", "Software Engineering", "Data Analytics", "Human Computer Interaction (HCI)", "Communications", "Digital Design", "Algorithms and Mathematics", "Artificial Intelligence", "IT Security", "Computer Graphics", "Cognitive Computing", "IT Change Management", "User Experience Design (UX)", "Statistics", "Business Intelligence", "Information Systems", "Databases", "Search Engine Optimization (SEO)", "Digital Marketing", "Servers and Hardware"].sort(),
+  skills_available: ["IT Project Management", "IT Strategy", "Software Development", "Organizational Studies", "Business Economics", "IT Law", "Innovation and Entrepreneurship", "Software Engineering", "Data Analytics", "Communications", "Digital Design", "Algorithms and Mathematics", "IT Security/Governance", "Computer Graphics", "Artificial Intelligence/Cognitive Computing", "IT Change Management", "User Experience Design (UX)", "Statistics", "Business Intelligence (BI)",   "Information Systems", "Databases", "Search Engine Optimization (SEO)", "Digital Marketing", "Servers and Hardware",  "Big Data/Machine Learning", "Management"].sort(),
   skills_selected: [],
   actions: {
     addSkill(skill) {
