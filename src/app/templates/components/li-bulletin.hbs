@@ -4,7 +4,11 @@
   <p>{{bulletin.title}}</p>
   <ul>
     {{#each bulletin.educations as |education|}}
-      <li>{{#link-to "education" education.id}}{{education.name.en}}{{/link-to}}</li>
+      {{#if education.name.da}}
+        <li>{{#link-to "education" education.id}}{{education.name.da}}{{/link-to}}</li>
+      {{else}}
+        <li>{{#link-to "education" education.id}}{{education.name.en}}{{/link-to}}</li>
+      {{/if}}
     {{/each}}
   </ul>
   <div class='read-more row'>

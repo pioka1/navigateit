@@ -1,7 +1,11 @@
 <div class="container" id="education">
   <header class="text-center">
     <img class="university_full_size" src="/assets/images/{{model.university}}_wide.png" />
-    <h1>{{model.name.en}}</h1>
+    {{#if model.name.da}}
+      <h1>{{model.name.da}}</h1>
+    {{else}}
+      <h1>{{model.name.en}}</h1>
+    {{/if}}
     <small><i>{{model.title}}</i></small>
   </header>
   <hr>

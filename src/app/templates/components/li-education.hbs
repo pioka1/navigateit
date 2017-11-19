@@ -1,6 +1,10 @@
 <li class="li-education list-group-item">
   <img class="li-education-university" src="/assets/images/{{education.university}}.png" />
-  <h3 class="li-education-name">{{education.name.en}}</h3>
+  {{#if education.name.da}}
+    <h3 class="li-education-name">{{education.name.da}}</h3>
+  {{else}}
+    <h3 class="li-education-name">{{education.name.en}}</h3>
+  {{/if}}
   <small class="li-education-title"><i>{{education.title}}</i></small>
   <div class="row li-education-information">
     <div class="col-md-4">
