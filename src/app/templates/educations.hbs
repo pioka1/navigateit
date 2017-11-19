@@ -5,6 +5,156 @@
       <hr>
       <form>
         <div class="form-group">
+          <label for="search">Filter by name</label>
+          <input type="text" class="form-control" name="search" id="search" value={{search_filter}} oninput={{action (mut search_filter) value="target.value"}}>
+        </div>
+        <div class="form-group">
+          <label for="degree">Filter by university</label>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array university_filter "aau")}}
+                {{input type="checkbox" name="aau" checked=true change=(action "toggleUniversity")}}
+              {{else}}
+                {{input type="checkbox" name="aau" change=(action "toggleUniversity")}}
+              {{/if}}
+              Aalborg Universitet
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array university_filter "au")}}
+                {{input type="checkbox" name="au" checked=true change=(action "toggleUniversity")}}
+              {{else}}
+                {{input type="checkbox" name="au" change=(action "toggleUniversity")}}
+              {{/if}}
+              Aarhus Universitet
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array university_filter "cbs")}}
+                {{input type="checkbox" name="cbs" checked=true change=(action "toggleUniversity")}}
+              {{else}}
+                {{input type="checkbox" name="cbs" change=(action "toggleUniversity")}}
+              {{/if}}
+              Copenhagen Business School
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array university_filter "dtu")}}
+                {{input type="checkbox" name="dtu" checked=true change=(action "toggleUniversity")}}
+              {{else}}
+                {{input type="checkbox" name="dtu" change=(action "toggleUniversity")}}
+              {{/if}}
+              Danmarks Tekniske Universitet
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array university_filter "itu")}}
+                {{input type="checkbox" name="itu" checked=true change=(action "toggleUniversity")}}
+              {{else}}
+                {{input type="checkbox" name="itu" change=(action "toggleUniversity")}}
+              {{/if}}
+              IT-Universitetet i København
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array university_filter "ku")}}
+                {{input type="checkbox" name="ku" checked=true change=(action "toggleUniversity")}}
+              {{else}}
+                {{input type="checkbox" name="ku" change=(action "toggleUniversity")}}
+              {{/if}}
+              Københavns Universitet
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array university_filter "ruc")}}
+                {{input type="checkbox" name="ruc" checked=true change=(action "toggleUniversity")}}
+              {{else}}
+                {{input type="checkbox" name="ruc" change=(action "toggleUniversity")}}
+              {{/if}}
+              Roskilde Universitet
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array university_filter "sdu")}}
+                {{input type="checkbox" name="sdu" checked=true change=(action "toggleUniversity")}}
+              {{else}}
+                {{input type="checkbox" name="sdu" change=(action "toggleUniversity")}}
+              {{/if}}
+              Syddansk Universitet
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="degree">Filter by degree</label>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array degree_filter "kandidat")}}
+                {{input type="checkbox" name="kandidat" checked=true change=(action "toggleDegree")}}
+              {{else}}
+                {{input type="checkbox" name="kandidat" change=(action "toggleDegree")}}
+              {{/if}}
+              Kandidat
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array degree_filter "bachelor")}}
+                {{input type="checkbox" name="bachelor" checked=true change=(action "toggleDegree")}}
+              {{else}}
+                {{input type="checkbox" name="bachelor" change=(action "toggleDegree")}}
+              {{/if}}
+              Bachelor
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array degree_filter "ak")}}
+                {{input type="checkbox" name="ak" checked=true change=(action "toggleDegree")}}
+              {{else}}
+                {{input type="checkbox" name="ak" change=(action "toggleDegree")}}
+              {{/if}}
+              Erhvervsakademiuddannelse
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array degree_filter "pbachelor")}}
+                {{input type="checkbox" name="pbachelor" checked=true change=(action "toggleDegree")}}
+              {{else}}
+                {{input type="checkbox" name="pbachelor" change=(action "toggleDegree")}}
+              {{/if}}
+              Professionsbachelor
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array degree_filter "diplom")}}
+                {{input type="checkbox" name="diplom" checked=true change=(action "toggleDegree")}}
+              {{else}}
+                {{input type="checkbox" name="diplom" change=(action "toggleDegree")}}
+              {{/if}}
+              Diplomuddannelse
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              {{#if (in-array degree_filter "eud")}}
+                {{input type="checkbox" name="eud" checked=true change=(action "toggleDegree")}}
+              {{else}}
+                {{input type="checkbox" name="eud" change=(action "toggleDegree")}}
+              {{/if}}
+              Erhvervsuddannelse
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
           <label>Required skills</label>
           <ul class="ul-skills">
             {{#each skills as |skill|}}
@@ -19,100 +169,6 @@
               {{skill-tag skill=skill addSkill=(action "addSkill") can-edit=false}}
             {{/each}}
           </ul>
-        </div>
-        <div class="form-group">
-          <label for="search">Filter by name</label>
-          <input type="text" class="form-control" name="search" id="search" oninput={{action (mut search_filter) value="target.value"}}>
-        </div>
-        <div class="form-group">
-          <label for="degree">Filter by university</label>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="aau" change=(action "toggleUniversity")}}
-              Aalborg Universitet
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="au" change=(action "toggleUniversity")}}
-              Aarhus Universitet
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="cbs" change=(action "toggleUniversity")}}
-              Copenhagen Business School
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="dtu" change=(action "toggleUniversity")}}
-              Danmarks Tekniske Universitet
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="itu" change=(action "toggleUniversity")}}
-              IT-Universitetet i København
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="ku" change=(action "toggleUniversity")}}
-              Københavns Universitet
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="ruc" change=(action "toggleUniversity")}}
-              Roskilde Universitet
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="sdu" change=(action "toggleUniversity")}}
-              Syddansk Universitet
-            </label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="degree">Filter by degree</label>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="kandidat" change=(action "toggleDegree")}}
-              Kandidat
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="bachelor" change=(action "toggleDegree")}}
-              Bachelor
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="ak" change=(action "toggleDegree")}}
-              Erhvervsakademiuddannelse
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="pbachelor" change=(action "toggleDegree")}}
-              Professionsbachelor
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="diplom" change=(action "toggleDegree")}}
-              Diplomuddannelse
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" name="eud" change=(action "toggleDegree")}}
-              Erhvervsuddannelse
-            </label>
-          </div>
         </div>
       </form>
     </aside>
