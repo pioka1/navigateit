@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('add-education', { path: "admin/educations/add" });
   this.route('educations');
   this.route('education', { path: '/education/:education_id' });
-  this.route('bulletin-board', { path: '/bulletin-board' });
+  this.route('bulletin-board');
   this.route('add-bulletin', { path: '/bulletin-board/add' });
   this.route('bulletin', { path: '/bulletin/:bulletin_id' });
 });

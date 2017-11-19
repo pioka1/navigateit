@@ -8,7 +8,7 @@ export default Ember.Route.extend({
       educations: this.get('store').findAll('education')
     });
   },
-  resetController(controller, isExiting, transition) {
+  resetController(controller, isExiting) {
     if (isExiting) {
       controller.set('publisher', 'all');
       controller.set('date_sort', 'ascending');

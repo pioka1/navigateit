@@ -37,66 +37,68 @@ module.exports = function(router) {
         Bulletin.find((err, bulletins) => {
 			if (err) return res.send(err);
 
-			// Handle include query parameter
-			if (req.query.include === 'educations') {
+			if (bulletins.length) {
+                // Handle include query parameter
+                if (req.query.include === 'educations') {
 
-				let primaryLock = 0;
+                    let primaryLock = 0;
 
-				for (let i = 0; i < bulletins.length; i++) {
-                    let educations = bulletins[i].attributes.educations;
+                    for (let i = 0; i < bulletins.length; i++) {
+                        let educations = bulletins[i].attributes.educations;
 
-                    let promiseloop = new Promise((resolve, reject) => {
-                        let list = [];
-                        for (let j = 0; j < educations.length; j++) {
-                            Education.findById(educations[j]).then(function (doc) {
-								list.push(doc);
-								console.log(list.length);
-                                if (list.length === educations.length) resolve(list);
-                            });
-                        }
-					});
+                        let promiseloop = new Promise((resolve, reject) => {
+                            let list = [];
+                            for (let j = 0; j < educations.length; j++) {
+                                Education.findById(educations[j]).then(function (doc) {
+                                    list.push(doc);
+                                    console.log(list.length);
+                                    if (list.length === educations.length) resolve(list);
+                                });
+                            }
+                        });
 
-                    promiseloop.then(function (array) {
-                        //console.log(array);
-                    	console.log("for bulletins");
-                    	console.log(bulletins[i]);
+                        promiseloop.then(function (array) {
+                            //console.log(array);
+                            console.log("for bulletins");
+                            console.log(bulletins[i]);
 
-                    	let rel_edu_data_array = [];
-                    	for (let i = 0; i < array.length; i++) {
-                    		rel_edu_data_array.push({"id": array[i]._id, "type": "education"});
-						}
+                            let rel_edu_data_array = [];
+                            for (let i = 0; i < array.length; i++) {
+                                rel_edu_data_array.push({"id": array[i]._id, "type": "education"});
+                            }
 
-                        bulletins[i] = {
-                        	"_id": bulletins[i]._id,
-                        	"type": bulletins[i].type,
-							"attributes": {
-                        		"publisher": bulletins[i].attributes.publisher,
-								"contact": bulletins[i].attributes.contact,
-								"posted": bulletins[i].attributes.posted,
-                                "expires": bulletins[i].attributes.expires,
-                                "description": bulletins[i].attributes.description,
-                                "title": bulletins[i].attributes.title
-                            },
-							"relationships": {
-                        		"educations": {
-                        			"data": rel_edu_data_array
-								}
-							}
-						};
-                        //console.log(bulletins[i]);
-                        if ( ++primaryLock === bulletins.length) {
-                            return res.json({"data": bulletins, "included": array});
-						}
-                    });
-
-
-				}
-
-				console.log("done");
-
+                            bulletins[i] = {
+                                "_id": bulletins[i]._id,
+                                "type": bulletins[i].type,
+                                "attributes": {
+                                    "publisher": bulletins[i].attributes.publisher,
+                                    "contact": bulletins[i].attributes.contact,
+                                    "posted": bulletins[i].attributes.posted,
+                                    "expires": bulletins[i].attributes.expires,
+                                    "description": bulletins[i].attributes.description,
+                                    "title": bulletins[i].attributes.title
+                                },
+                                "relationships": {
+                                    "educations": {
+                                        "data": rel_edu_data_array
+                                    }
+                                }
+                            };
+                            //console.log(bulletins[i]);
+                            if ( ++primaryLock === bulletins.length) {
+                                return res.json({"data": bulletins, "included": array});
+                            }
+                        });
+                    }
+                    console.log("done");
+                } else {
+                    res.json({'data': bulletins});
+                }
 			} else {
-                res.json({'data': bulletins});
+                res.json({'data': []});
 			}
+
+
 		});
 	});
 
